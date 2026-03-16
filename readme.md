@@ -6,6 +6,6 @@ This repository contains the implementation for the ECML submission "Iterative I
 
 First create a conda environment using `conda env create -f environment.yml`.
 
-The experiments can be configured in the `reproduce_experiments/configurations` folder where different materials and number of grains can be selected.
+The experiments can be configured in the `configurations` folder where different materials and number of grains can be selected.
 
 To reproduce the experiments, run `reproduce_experiments/run_all.py`.
