@@ -1,0 +1,68 @@
+prefix: _10grain  # Prefix for the folder to be created for training dataset
+
+material_: [Cu, Cu]  # Same key as used in dict_LaueTools, use two times the same for only one material
+symmetry: [cubic, cubic]  # Crystal symmetry of material_
+SG: [225, 225]  # Space group of material_ (None if not known)
+hkl_max_identify: [5, 5]  # Maximum hkl index to classify in a Laue pattern
+nb_grains_per_lp_mat: [10, 10]  # Max number of grains to be generated in a Laue Image
+
+# Data generation settings
+grains_nb_simulate: 1000  # Number of orientations to generate (takes advantage of crystal symmetry)
+classes_with_frequency_to_remove: [100, 100]  # HKL class with less appearance than specified will be ignored in output
+desired_classes_output: [all, all]  # Can be all or an integer: to limit the number of output classes
+include_small_misorientation: false  # to include additional data with small angle misorientation
+misorientation: 5  # Only used if "include_small_misorientation" is True
+maximum_angle_to_search: 120  # Angle of radial distribution to reconstruct the histogram (in deg)
+step_for_binning: 0.1  # Bin width of angular radial distribution in degree
+
+# Training parameters
+orientation_generation: uniform  # Can be random or uniform
+batch_size: 100  # Batch size for neural network training
+epochs: 10  # Number of epochs for training
+
+# Detector parameters of the experimental setup
+detectorparameters: [79.553, 979.32, 932.31, 0.37, 0.447]  # Sample-detector distance, X center, Y center, two detector angles
+pixelsize: 0.0734  # Detector pixel size
+dim1: 2018  # Dimensions of detector in pixels
+dim2: 2016
+emin: 5  # Minimum and maximum energy to use for simulating Laue Patterns
+emax: 22
+ccd_label: sCMOS
+
+# Prediction parameters
+experimental_prefix: nw1_
+grid_size_x: 1  # Grid X and Y limit to generate the simulated dataset (a rectangular scan region)
+grid_size_y: 2
+
+# Prediction Settings
+UB_matrix_to_detect: 3
+matrix_tolerance: [0.6, 0.6]
+material_limit: [2, 1]
+material_phase_always_present: 2
+softmax_threshold_global: 0.85  # Thresholding to limit the predicted spots search zone
+cap_matchrate: 0.2  # Any UB matrix providing MR less than this will be ignored
+coeff_overlap: 0.3  # Coefficient to limit the overlapping between spots; if more than this, new solution will be computed
+mode_spotCycle: graphmode  # How to cycle through predicted spots (slow or graphmode)
+use_previous: false  #true for few crystal and preferred texture case, otherwise time-consuming; advised for single phase alone
+
+# Peak search
+intensity_threshold: 2  # For skimage this is of image standard deviation
+boxsize: 10  # For skimage this is box size to fit
+fit_peaks_gaussian: 1  # For skimage this is of no sense
+FitPixelDev: 15  # For skimage this is distance between peaks to avoid
+NumberMaxofFits: 3000  # For skimage this is maximum least square attempts before giving up
+mode: skimage
+
+# Strain calculation
+strain_compute: true
+tolerance_strain_refinement:
+- [0.6, 0.5, 0.4, 0.3, 0.2, 0.1]
+- [0.6, 0.5, 0.4, 0.3, 0.2, 0.1]
+free_parameters: [b, c, alpha, beta, gamma]
+
+# Additional settings
+residues_threshold: 0.25
+nb_spots_global_threshold: 8
+nb_spots_consider: 500
+use_om_user: false  # User defined orientation matrix supplied in a file
+path_user_OM: ''

@@ -1,0 +1,13 @@
+# Set embedding/clustering parameters
+n_lines: 100  # number of lines to be detected for clustering
+n_clusters: 100  # maximum number of clusters
+n_bins: 500  # number of bins for the histogram
+star_center_count: 3  # minimum number of intersecting lines to define a star center
+confidence_threshold: 0.0  # early stopping criteria based on best_mean_confidence
+n_explained_points_threshold: 5  # early stopping criteria based on number of explained points
+max_distance: .2  # tolerance for explaining points based on computed points
+cluster_heuristic: "top-k"  # mean_confidence, top-k
+point_heuristic:
+  k: 5  # top k
+  sort_by: 'confidence'  # miller, confidence
+  confidence_threshold: 0.0  # range(0,1)

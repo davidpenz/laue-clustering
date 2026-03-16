@@ -1,0 +1,19 @@
+# Training parameters
+verbose: true
+batch_size: 1024  # Batch size for neural network training
+epochs: 20  # Number of epochs for training
+lr: 1e-3
+weight_decay: 0  # 1e-5
+lr_scheduler: false  # True or False
+
+# Model parameters
+model_class: CustomNN    # LaueNN, CustomNN, CustomMLP
+input_dropout: 0.
+dims:        # Input Dim + [Dims] + Output Dim; if null -> dims = [output*2]
+activation: relu    # relu, sigmoid, tanh
+save_model: true
+
+# Data parameters
+n_rotations:
+material:
+dataset: ZrO2_5grain

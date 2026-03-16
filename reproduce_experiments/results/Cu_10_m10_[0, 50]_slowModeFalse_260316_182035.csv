@@ -1,0 +1,2 @@
+avg_n_spots,avg_acc,avg_explained_points_ratio,avg_explained_grains_ratio,avg_image_runtime,mean_relevance_scores,precision@1,recall@1,MAP@1,NDCG@1,precision@3,recall@3,MAP@3,NDCG@3,precision@5,recall@5,MAP@5,NDCG@5,precision@10,recall@10,MAP@10,NDCG@10,precision@20,recall@20,MAP@20,NDCG@20
+218,0.34087650196846836,0.9994545454545454,1.0,2.373579870159956,[1.   1.   1.   1.   1.   1.   1.   1.   1.   0.98],1.0,0.09999999999999998,1.0,1.0,1.0,0.30000000000000004,1.0,1.0,1.0,0.5,1.0,1.0,0.998,0.998,1.0,1.0,0.499,0.998,1.0,1.0

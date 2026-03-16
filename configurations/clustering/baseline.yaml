@@ -1,0 +1,7 @@
+# Set embedding/clustering parameters
+n_clusters: 40  # maximum number of clusters
+max_number_candidates: 100  # maximum number of candidate points
+star_center_count: 2  # minimum number of intersecting lines to define a star center
+confidence_threshold: 0.95  # early stopping criteria based on best_mean_confidence
+max_distance: .2  # tolerance for explaining points based on computed points
+cluster_heuristic: "top-k"  # mean_confidence, top-k
