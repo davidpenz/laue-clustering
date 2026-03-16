@@ -1,0 +1,14 @@
+name: laue-clustering
+channels:
+  - defaults
+dependencies:
+  - numpy
+  - scikit-learn
+  - matplotlib
+  - python==3.12
+  - keras
+  - tensorflow
+  - natsort
+  - pip
+  - pip:
+      - -r requirements.txt
