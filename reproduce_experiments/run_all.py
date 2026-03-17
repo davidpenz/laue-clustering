@@ -4,7 +4,7 @@ from run_baseline import main as run_baseline
 if __name__ == "__main__":
     materials = ["Cu", "Ti", "Sn", "ZrO2"]
     grains = [10]
-    data_intervals = [[0,50], [50,100], [100,150], [150,200]]
+    data_intervals = [[0,50], [150,200]]  # 0-50: Noise-free, 150-200: Noisy
     slow_modes = [False, True]
 
     for material in materials:
