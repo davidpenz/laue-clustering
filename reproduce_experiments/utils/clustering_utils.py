@@ -173,7 +173,7 @@ def compute_hough_embeddings(points, s_grain_id, n_bins, r=0.3, eps=1e-12):
     return edge_embeddings, colors, edge_to_points, h, angle_edges, dist_edges
 
 
-def compute_lines(n_lines, h, angle_values, distance_values, edge_to_points, points, edge_embeddings):
+def compute_lines(n_lines, h, angle_values, distance_values, edge_to_points, edge_embeddings):
     """
     Faster version of the compute_lines function.
     compute_lines does: for every chosen line bin, let's scan every edge and check if it's inside the bin.
@@ -183,7 +183,6 @@ def compute_lines(n_lines, h, angle_values, distance_values, edge_to_points, poi
     When selecting the top n_lines, retrieve all edges belonging to the chosen bin directly from this index
     instead of scanning all edges.
     Result should be identical to compute_lines, just faster.
-    TODO: remove points variable.
     """
     # Convert edge_to_points dict -> endpoint arrays aligned to edge_embeddings rows ---
     # We use edge_key = len(edge_embeddings) so keys should be (0, ..., E-1).
@@ -277,10 +276,10 @@ def compute_lines(n_lines, h, angle_values, distance_values, edge_to_points, poi
     return all_explained_idx, point_to_lines_idx
 
 
-def compute_star_centers(star_center_count, n_lines, h, angle_values, distance_values, edge_to_points, points, edge_embeddings):
+def compute_star_centers(star_center_count, n_lines, h, angle_values, distance_values, edge_to_points, edge_embeddings):
     # Find star centers (points explained by >2 lines). But fast.
     all_explained_idx, point_to_lines_idx = compute_lines(
-        n_lines, h, angle_values, distance_values, edge_to_points, points, edge_embeddings
+        n_lines, h, angle_values, distance_values, edge_to_points, edge_embeddings
     )
     if len(all_explained_idx) == 0:
         return np.array([], dtype=np.int32), point_to_lines_idx

@@ -48,7 +48,7 @@ def evaluate_clusters(
             )
         with CodeTimer(f"Star centers, fast? {cid}", logger=logger):
             star_center_idx, point_to_lines_idx = compute_star_centers(
-                star_center_count, n_lines, h, angle_values, distance_values, edge_to_points, points, edge_embeddings
+                star_center_count, n_lines, h, angle_values, distance_values, edge_to_points, edge_embeddings
             )
         # print(f"Number of star centers: {len(star_center_idx)}")
         if len(star_center_idx) < 1:
