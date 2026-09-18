@@ -1,6 +1,6 @@
 # Laue Clustering 
  
-This repository contains the implementation for the ECML submission "Iterative Indexing of Polycrystalline Laue Diffraction Patterns via Cluster-Driven Inference".
+This repository contains the implementation for the paper "Iterative Indexing of Polycrystalline Laue Diffraction Patterns via Cluster-Driven Inference" accepted at ML4EMS@ECML26.
 
 ## How to use
 
